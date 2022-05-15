@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  example:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: elk-example:lastest
+    container_name: example
+    privileged: true
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - /root/apps/logs:/usr/local/logs
+    environment:
+      TZ: Asia/Shanghai #设置时区
