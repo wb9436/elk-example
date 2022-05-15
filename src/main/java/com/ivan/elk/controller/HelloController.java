@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 @RestController
 public class HelloController {
 
-    @Value("v1.0.1")
+    @Value("v1.0.5")
     private String version;
 
     @RequestMapping("/hello")
