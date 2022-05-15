@@ -3,6 +3,7 @@ package com.ivan.elk.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.ivan.elk.util.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,9 +22,12 @@ import java.time.format.DateTimeFormatter;
 @RestController
 public class HelloController {
 
+    @Value("v1.0.1")
+    private String version;
+
     @RequestMapping("/hello")
     public Result hello(HttpServletRequest request) {
-        log.info("收到客户端请求：{}", request);
+        log.info("收到客户端请求：{} 当前版本 {}", request, version);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String time = LocalDateTime.now().format(formatter);
